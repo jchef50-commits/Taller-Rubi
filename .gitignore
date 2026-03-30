@@ -1,0 +1,18 @@
+# Dependencias (Lo más pesado, NO se sube)
+node_modules/
+
+# Archivos de Next.js
+.next/
+out/
+build/
+
+# Secretos y llaves (¡Privado!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos del sistema
+.DS_Store
+*.log
