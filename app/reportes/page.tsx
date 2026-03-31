@@ -12,7 +12,17 @@ function getTodayRange() {
 }
 
 export default function ReportesPage() {
-  const [registros, setRegistros] = useState<any[]>([]);
+  interface Registro {
+    id: string;
+    precio?: number | string;
+    mecanico?: string;
+    cliente?: string;
+    modelo?: string;
+    placa?: string;
+    servicio?: string;
+    fecha?: string;
+  }
+  const [registros, setRegistros] = useState<Registro[]>([]);
   const [loading, setLoading] = useState(true);
   const [kpis, setKpis] = useState({
     vehiculos: 0,
@@ -25,7 +35,7 @@ export default function ReportesPage() {
     const [start, end] = getTodayRange();
     const q = query(collection(db, "registros"), where("fecha", ">=", start), where("fecha", "<=", end));
     const snap = await getDocs(q);
-    const docs = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const docs: Registro[] = snap.docs.map(doc => ({ id: doc.id, ...(doc.data() as Omit<Registro, 'id'>) }));
     setRegistros(docs);
 
     // KPIs
