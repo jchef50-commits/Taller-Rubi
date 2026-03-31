@@ -17,9 +17,9 @@ export default function AdminPage() {
   useEffect(() => {
     const cargarDatos = async () => {
       const servSnap = await getDocs(collection(db, "servicios"));
-      setServicios(servSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-      const mecSnap = await getDocs(collection(db, "mecanicos"));
-      setMecanicos(mecSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+        setServicios(servSnap.docs.map((doc: any) => ({ id: doc.id, ...doc.data() })));
+        const mecSnap = await getDocs(collection(db, "mecanicos"));
+        setMecanicos(mecSnap.docs.map((doc: any) => ({ id: doc.id, ...doc.data() })));
     };
     cargarDatos();
   }, []);
@@ -35,7 +35,7 @@ export default function AdminPage() {
     setNuevoServicio({ nombre: "", precio: "" });
     // Refrescar lista
     const servSnap = await getDocs(collection(db, "servicios"));
-    setServicios(servSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+    setServicios(servSnap.docs.map((doc: any) => ({ id: doc.id, ...doc.data() })));
   };
 
   // Eliminar servicio
@@ -52,7 +52,7 @@ export default function AdminPage() {
     setNuevoMecanico("");
     // Refrescar lista
     const mecSnap = await getDocs(collection(db, "mecanicos"));
-    setMecanicos(mecSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+    setMecanicos(mecSnap.docs.map((doc: any) => ({ id: doc.id, ...doc.data() })));
   };
 
   // Eliminar mecánico

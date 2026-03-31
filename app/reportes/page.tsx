@@ -35,7 +35,7 @@ export default function ReportesPage() {
     const [start, end] = getTodayRange();
     const q = query(collection(db, "registros"), where("fecha", ">=", start), where("fecha", "<=", end));
     const snap = await getDocs(q);
-    const docs: Registro[] = snap.docs.map(doc => ({ id: doc.id, ...(doc.data() as Omit<Registro, 'id'>) }));
+    const docs: Registro[] = snap.docs.map((doc: any) => ({ id: doc.id, ...(doc.data() as Omit<Registro, 'id'>) }));
     setRegistros(docs);
 
     // KPIs

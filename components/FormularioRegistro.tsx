@@ -32,8 +32,8 @@ export default function FormularioRegistro({ onRegistroExitoso }: FormularioProp
     const cargarDatos = async () => {
       const servSnap = await getDocs(collection(db, 'servicios'));
       const mecSnap = await getDocs(collection(db, 'mecanicos'));
-      setServicios(servSnap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-      setMecanicos(mecSnap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+        setServicios(servSnap.docs.map((doc: any) => ({ id: doc.id, ...doc.data() })));
+        setMecanicos(mecSnap.docs.map((doc: any) => ({ id: doc.id, ...doc.data() })));
     };
     cargarDatos();
   }, []);
@@ -68,8 +68,8 @@ export default function FormularioRegistro({ onRegistroExitoso }: FormularioProp
 
         await new Promise((resolve, reject) => {
           uploadTask.on('state_changed', 
-            (snapshot) => setUploadProgress(Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)),
-            (error) => reject(error),
+            (snapshot: any) => setUploadProgress(Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)),
+            (error: any) => reject(error),
             async () => {
               const url = await getDownloadURL(uploadTask.snapshot.ref);
               nuevasUrls.push(url);

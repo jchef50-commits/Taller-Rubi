@@ -17,7 +17,7 @@ export default function TablaReportes() {
   useEffect(() => {
     const q = query(collection(db, "registros"), where("fecha", ">=", fechaHoy));
     const unsub = onSnapshot(q, (snap) => {
-      setRegistros(snap.docs.map(doc => ({ id: doc.id, ...doc.data() } as any)));
+      setRegistros(snap.docs.map((doc: any) => ({ id: doc.id, ...doc.data() } as any)));
     });
     return () => unsub();
   }, [fechaHoy]);
