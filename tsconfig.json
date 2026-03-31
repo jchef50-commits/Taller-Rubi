@@ -16,11 +16,9 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*"],
-      "@/lib/*": ["lib/*"],
-      "@/components/*": ["components/*"]
+      "@/lib/*": ["./lib/*"],
+      "@/components/*": ["./components/*"]
     }
-    ,
-    "baseUrl": "."
   },
   "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
