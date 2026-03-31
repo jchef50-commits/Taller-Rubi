@@ -1,8 +1,9 @@
+
+"use client";
 // Interfaz para la prop opcional de éxito
 interface FormularioProps {
   onRegistroExitoso?: () => void;
 }
-"use client";
 
 import React, { useState, useEffect } from 'react';
 import { db, storage } from '@/lib/firebase';
