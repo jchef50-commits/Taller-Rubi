@@ -1,3 +1,7 @@
+// Interfaz para la prop opcional de éxito
+interface FormularioProps {
+  onRegistroExitoso?: () => void;
+}
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -8,7 +12,7 @@ import imageCompression from 'browser-image-compression';
 import { Send, Car, User, Phone, Wrench, Camera, AlertCircle, CheckCircle2 } from 'lucide-react';
 import GaleriaFotos from './GaleriaFotos';
 
-export default function FormularioRegistro() {
+export default function FormularioRegistro({ onRegistroExitoso }: FormularioProps) {
   // Estados del Formulario
   const [formData, setFormData] = useState({
     cliente: '', telefono: '', placa: '', modelo: '', servicio: '', mecanico: '', observaciones: ''
@@ -104,6 +108,9 @@ export default function FormularioRegistro() {
       window.open(`https://wa.me/${formData.telefono.replace(/\D/g, '')}?text=${mensaje}`, '_blank');
 
       setStatus({ type: 'success', msg: '¡Vehículo registrado con éxito!' });
+      if (onRegistroExitoso) {
+        onRegistroExitoso();
+      }
     } catch (error) {
       setStatus({ type: 'error', msg: 'Error al guardar en la base de datos' });
     }
