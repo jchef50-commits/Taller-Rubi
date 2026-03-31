@@ -1,3 +1,4 @@
+"use client";
 import Sidebar from "@/components/Sidebar";
 import FormularioRegistro from "@/components/FormularioRegistro";
 import { useState } from "react";
