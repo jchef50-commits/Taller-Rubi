@@ -6,7 +6,7 @@ interface FormularioProps {
 }
 
 import React, { useState, useEffect } from 'react';
-import { db, storage } from '@/lib/firebase';
+import { db, storage } from '../lib/firebase';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import imageCompression from 'browser-image-compression';
