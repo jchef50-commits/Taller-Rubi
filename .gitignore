@@ -16,3 +16,4 @@ build/
 # Archivos del sistema
 .DS_Store
 *.log
+*.code-workspace
